@@ -1,1 +1,2 @@
-# Emotus-Frontend
+# emotus-project
+Project mobile app 
