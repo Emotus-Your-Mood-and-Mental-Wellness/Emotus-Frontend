@@ -1,434 +1,581 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="96dp"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".ui.monitoring.MonitoringFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="16dp"
+    android:layout_marginBottom="96dp"
+    tools:context=".ui.monitoring.MonitoringFragment">
 
-        <com.google.android.material.button.MaterialButtonToggleGroup
-            android:id="@+id/toggleButton"
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:checkedButton="@id/button1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+
+        <Button
+            android:id="@+id/button1"
+            style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:singleSelection="true"
-            app:selectionRequired="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:ellipsize="start"
+            android:fontFamily="@font/inter_medium"
+            android:text="Harian"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            app:cornerRadius="20dp"
+            app:strokeColor="@color/black" />
 
-            <Button
-                android:id="@+id/button1"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ellipsize="start"
-                app:strokeColor="@color/black"
-                android:fontFamily="@font/inter_medium"
-                android:text="Today"
-                android:textStyle="bold"
-                android:textAllCaps="false"
-                app:cornerRadius="20dp" />
+        <Button
+            android:id="@+id/button2"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Mingguan"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            app:strokeColor="@color/black" />
 
-            <Button
-                android:id="@+id/button2"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="wrap_content"
-                app:strokeColor="@color/black"
-                android:layout_height="match_parent"
-                android:textAllCaps="false"
-                android:textStyle="bold"
-                android:text="Week" />
-
-            <Button
-                android:id="@+id/button3"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Month"
-                app:strokeColor="@color/black"
-                android:textStyle="bold"
-                android:textAllCaps="false"
-                app:cornerRadius="20dp" />
-        </com.google.android.material.button.MaterialButtonToggleGroup>
+        <Button
+            android:id="@+id/button3"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bulanan"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            app:cornerRadius="20dp"
+            app:strokeColor="@color/black" />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/menuTitle"
         android:layout_width="0dp"
-        android:gravity="center"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
         android:fontFamily="@font/inter_bold"
-        android:text="Your Emotional Journey"
-        android:textColor="@color/black"
+
+        android:gravity="center"
+        android:text="Pemantauan Mood"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toggleButton" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/moodGraphSubtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/inter_semibold"
+        android:text="Grafik Mood"
+
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menuTitle" />
+
+    <RelativeLayout
+        android:id="@+id/c"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moodGraphSubtitle">
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/moodRecapSubtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/inter_semibold"
+        android:text="Rekap Mood"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/c" />
+
+    <RelativeLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moodRecapSubtitle">
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/happyProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:progress="0"
+            app:indicatorColor="#61CE5A"
+            app:trackColor="#AFE88F"
+            app:trackCornerRadius="15dp"
+            app:trackThickness="30dp" />
+
+        <ImageView
+            android:id="@+id/happyProgressBarIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignStart="@id/happyProgressBar"
+            android:layout_alignTop="@id/happyProgressBar"
+            android:layout_alignBottom="@id/happyProgressBar"
+            android:background="@drawable/mood_icon_background"
+            android:src="@drawable/sentiment_excited_40px"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/happyProgressBarText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/happyProgressBar"
+            android:layout_alignEnd="@id/happyProgressBar"
+            android:layout_alignBottom="@id/happyProgressBar"
+            android:fontFamily="@font/inter_medium"
+            android:gravity="center"
+            android:text="0%"
+            android:layout_marginEnd="8dp"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/happyCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="0"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/loveProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:progress="0"
+            app:indicatorColor="#7ECE7E"
+            app:trackColor="#B0EFB0"
+            app:trackCornerRadius="15dp"
+            app:trackThickness="30dp" />
+
+        <ImageView
+            android:id="@+id/loveProgressBarIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/mood_icon_background"
+            android:src="@drawable/sentiment_very_satisfied_40px"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/loveProgressBarText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_alignTop="@id/loveProgressBar"
+            android:layout_alignEnd="@id/loveProgressBar"
+            android:layout_alignBottom="@id/loveProgressBar"
+            android:fontFamily="@font/inter_medium"
+            android:gravity="center"
+            android:text="0%"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/loveCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="0"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLaysout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/fearProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:progress="10"
+            app:indicatorColor="#FFB464"
+            app:trackColor="#FFE19E"
+            app:trackCornerRadius="15dp"
+            app:trackThickness="30dp" />
+
+
+        <ImageView
+            android:id="@+id/fearProgressBarIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/mood_icon_background"
+            android:src="@drawable/sentiment_worried_40px"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/fearProgressBarText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_alignTop="@id/fearProgressBar"
+            android:layout_alignEnd="@id/fearProgressBar"
+            android:layout_alignBottom="@id/fearProgressBar"
+            android:fontFamily="@font/inter_medium"
+            android:gravity="center"
+            android:text="0%"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/fearCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="0"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/relativeLaysout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/relativeLaysout" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayosut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLaysout">
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/sadnessProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:progress="0"
+            app:indicatorColor="#F17A7A"
+            app:trackColor="#F1C1C1"
+            app:trackCornerRadius="15dp"
+            app:trackThickness="30dp" />
+
+
+        <ImageView
+            android:id="@+id/sadnessProgressBarIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/mood_icon_background"
+            android:src="@drawable/sentiment_sad_40px"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/sadnessProgressBarText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_alignTop="@id/sadnessProgressBar"
+            android:layout_alignEnd="@id/sadnessProgressBar"
+            android:layout_alignBottom="@id/sadnessProgressBar"
+            android:fontFamily="@font/inter_medium"
+            android:gravity="center"
+            android:text="0%"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/sadnessCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="0"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/relativeLayosut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/relativeLayosut" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayosjut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayosut">
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/angerProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:progress="0"
+            app:indicatorColor="#FF3E3A"
+            app:trackColor="#FFA69E"
+            app:trackCornerRadius="15dp"
+            app:trackThickness="30dp" />
+
+
+        <ImageView
+            android:id="@+id/angerProgressBarIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/mood_icon_background"
+            android:src="@drawable/sentiment_extremely_dissatisfied_40px"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/angerProgressBarText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_alignTop="@id/angerProgressBar"
+            android:layout_alignEnd="@id/angerProgressBar"
+            android:layout_alignBottom="@id/angerProgressBar"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp"
+            android:fontFamily="@font/inter_medium"
+            android:gravity="center"
+            android:text="0%"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/angerCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="0"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/relativeLayosjut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/relativeLayosjut" />
+
+    <TextView
+        android:id="@+id/moodReflectionSubtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:fontFamily="@font/inter_semibold"
-        android:text="Mood Graph"
-        android:textColor="@color/black"
+        android:text="Refleksi Mood"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayosjut" />
 
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="333dp"
-            android:layout_height="126dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView16"
-            tools:src="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/textView17"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
-            android:fontFamily="@font/inter_semibold"
-            android:text="Mood Recap"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
-
-        <RelativeLayout
-            android:id="@+id/relativeLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="64dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView17">
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:progress="19"
-                android:progressDrawable="@drawable/positive_bar" />
-
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/positive"
-                tools:src="@tools:sample/avatars" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/progressBar"
-                android:layout_alignBottom="@id/progressBar"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="@font/inter_medium"
-                android:gravity="center"
-                android:text="10%"
-                android:textSize="16sp" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/relativeLaysout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="64dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
-
-            <ProgressBar
-                android:id="@+id/progressBsar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:progress="37"
-                android:progressDrawable="@drawable/neutral_bar" />
-
-
-            <ImageView
-                android:id="@+id/imageViews2"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/neutral"
-                tools:src="@tools:sample/avatars" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/progressBsar"
-                android:layout_alignBottom="@id/progressBsar"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="@font/inter_medium"
-                android:gravity="center"
-                android:text="30%"
-                android:textSize="16sp" />
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:id="@+id/relativeLayosut"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="64dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLaysout">
-
-            <ProgressBar
-                android:id="@+id/progresssBsar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:progress="64"
-                android:progressDrawable="@drawable/negative_bar" />
-
-
-            <ImageView
-                android:id="@+id/imageViessw2"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/negative"
-                tools:src="@tools:sample/avatars" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/progresssBsar"
-                android:layout_alignBottom="@id/progresssBsar"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="@font/inter_medium"
-                android:gravity="center"
-                android:text="60%"
-                android:textSize="16sp" />
-        </RelativeLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/resultSection"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
-        android:fontFamily="@font/inter_medium"
-        android:text="1"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
+        android:background="@drawable/rounded_background"
+        android:orientation="vertical"
+        android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/relativeLayout" />
-
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/inter_medium"
-        android:text="3"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/relativeLaysout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/relativeLaysout" />
-
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/inter_medium"
-        android:text="6"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/relativeLayosut"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/relativeLayosut" />
-
-        <TextView
-            android:id="@+id/textView18"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
-            android:fontFamily="@font/inter_semibold"
-            android:text="Mood Reflection"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayosut" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moodReflectionSubtitle">
 
         <LinearLayout
-            android:id="@+id/linearLayout4"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="24dp"
-            android:background="@drawable/rounded_background"
-            android:orientation="vertical"
-            android:padding="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView18">
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/textView21"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView21"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/inter_semibold"
-                    android:text="Today, You’re Feeling Mostly"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:id="@+id/imageView7"
-                    android:layout_width="21dp"
-                    android:layout_height="21dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/negative"
-                    tools:src="@tools:sample/avatars" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/textView22"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/inter"
-                android:text="It seems like you're feeling down today. We understand that tough days happen, and it's okay to feel this way. You're not alone." />
-
-            <TextView
-                android:id="@+id/textView23"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
                 android:fontFamily="@font/inter_semibold"
-                android:text="Thoughtful Suggestions" />
+                android:text="Hari Ini Kamu Merasa"
+                android:textAlignment="textEnd"
+                android:textSize="16sp" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView24"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter"
-                    android:paddingHorizontal="8dp"
-                    android:text="•" />
-
-                <TextView
-                    android:id="@+id/textView25"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter"
-                    android:text="Take a deep breath, and remember it's okay to take a break. Maybe try journaling or listening to something calming." />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView204"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter"
-                    android:paddingHorizontal="8dp"
-                    android:text="•" />
-
-                <TextView
-                    android:id="@+id/textView205"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter"
-                    android:text="If you're ready, reach out to someone who can lend a listening ear." />
-            </LinearLayout>
-
-
-            <TextView
-                android:id="@+id/textView26"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/inter_semibold"
-                android:text="Things You Can Do" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView214"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter"
-                    android:paddingHorizontal="8dp"
-                    android:text="•" />
-
-                <TextView
-                    android:id="@+id/textView2115"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter"
-                    android:text="Try a gentle breathing exercise." />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView2334"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter"
-                    android:paddingHorizontal="8dp"
-                    android:text="•" />
-
-                <TextView
-                    android:id="@+id/textView235"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter"
-                    android:text="Check your mood trends over time." />
-            </LinearLayout>
-
+            <ImageView
+                android:id="@+id/moodResult"
+                android:layout_width="21dp"
+                android:layout_height="21dp"
+                android:layout_gravity="start"
+                android:background="@drawable/mood_icon_background"
+                android:foregroundGravity="left"
+                android:src="@drawable/negative"
+                tools:src="@tools:sample/avatars" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/sympathyMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/inter"
+            android:text="It seems like you're feeling down today. We understand that tough days happen, and it's okay to feel this way. You're not alone." />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="Saran Bijak" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:paddingHorizontal="8dp"
+                android:text="•" />
+
+            <TextView
+                android:id="@+id/thoughtfulSuggestions1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:text="Take a deep breath, and remember it's okay to take a break. Maybe try journaling or listening to something calming." />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView204"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:paddingHorizontal="8dp"
+                android:text="•" />
+
+            <TextView
+                android:id="@+id/thoughtfulSuggestions2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:text="If you're ready, reach out to someone who can lend a listening ear." />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="Hal yang Bisa Kamu Lakukan" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView214"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:paddingHorizontal="8dp"
+                android:text="•" />
+
+            <TextView
+                android:id="@+id/thingsToDo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:text="Try a gentle breathing exercise." />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView2334"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:paddingHorizontal="8dp"
+                android:text="•" />
+
+            <TextView
+                android:id="@+id/thingsToDo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:text="Check your mood trends over time." />
+        </LinearLayout>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView30"
@@ -438,22 +585,102 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:fontFamily="@font/inter_semibold"
-        android:text="Mood Progress"
+        android:text="Catatan Mood"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+        app:layout_constraintTop_toBottomOf="@+id/resultSection" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle"
         android:layout_width="0dp"
-        android:scrollbars="none"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
+        android:isScrollContainer="false"
+        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recycle" />
+
+    <Button
+        android:id="@+id/infoButton"
+        style="@style/CustomIconButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:insetLeft="0dp"
+        android:insetRight="0dp"
+        android:padding="0dp"
+        app:icon="@drawable/info_24px"
+        app:iconSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/moodRecapSubtitle"
+        app:layout_constraintStart_toEndOf="@+id/moodRecapSubtitle"
+        app:layout_constraintTop_toTopOf="@+id/moodRecapSubtitle" />
+
+    <TextView
+        android:id="@+id/nullGraph"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="Belum Ada Mood yang Dicatat Hari Ini!"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/moodRecapSubtitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moodGraphSubtitle" />
+
+    <TextView
+        android:id="@+id/nullReflection"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="Belum Ada Mood yang Dicatat Hari Ini!"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/textView30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moodReflectionSubtitle" />
+
+    <TextView
+        android:id="@+id/nullHistory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Belum Ada Mood yang Dicatat Hari Ini!"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+    <Button
+        android:id="@+id/infoGraph"
+        style="@style/CustomIconButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:icon="@drawable/info_24px"
+        app:iconSize="20dp"
+        android:insetLeft="0dp"
+        android:insetRight="0dp"
+        android:padding="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/moodGraphSubtitle"
+        app:layout_constraintStart_toEndOf="@+id/moodGraphSubtitle"
+        app:layout_constraintTop_toTopOf="@+id/moodGraphSubtitle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

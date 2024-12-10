@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.EmotusProject" parent="Theme.MaterialComponents.DayNight">
         <!-- Primary brand color. -->
@@ -12,7 +12,14 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <item name="android:textColor">@color/black</item>
+        <item name="colorOnBackground">@color/black</item>
+        <item name="android:fontFamily">@font/inter</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="DialogFadeIn">
+        <item name="android:windowEnterAnimation">@anim/fade_in</item>
+        <item name="android:windowExitAnimation">@anim/fade_out</item>
     </style>
 
     <style name="CustomIconButton" parent="Widget.Material3.Button.IconButton">

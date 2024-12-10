@@ -14,7 +14,7 @@
     <fragment
         android:id="@+id/navigation_monitoring"
         android:name="academy.bangkit.emotusproject.ui.monitoring.MonitoringFragment"
-        android:label="Monitoring"
+        android:label="Pemantauan"
         tools:layout="@layout/fragment_monitoring" />
 
     <fragment
@@ -26,7 +26,7 @@
     <fragment
         android:id="@+id/navigation_settings"
         android:name="academy.bangkit.emotusproject.ui.settings.SettingsFragment"
-        android:label="Settings"
+        android:label="Pengaturan"
         tools:layout="@layout/fragment_settings" />
 
 </navigation>

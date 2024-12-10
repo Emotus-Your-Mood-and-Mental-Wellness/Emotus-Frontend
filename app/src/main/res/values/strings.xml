@@ -1,6 +1,15 @@
 <resources>
-    <string name="app_name">Emotus Project</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="app_name">Emotus - Your Mood and Mental Wellness Companion</string>
+    <string name="title_home">Beranda</string>
+    <string name="foto_profil">foto profil</string>
+    <string name="today_you_re_feeling">Mood Hari Ini</string>
+    <string name="mood_status">Status Mood</string>
+    <string name="photo_profile">Profil Foto</string>
+    <string name="helpful_hint">Tips Bermanfaat</string>
+    <string name="mood_recap">Rekap Mood</string>
+    <string name="your_overall_mood_this_day_is_mostly">Mood kamu hari ini sebagian besar</string>
+    <string name="feel_inspired">Inspirasi</string>
+    <string name="how_are_you_feeling">Bagaimana Perasaanmu?</string>
+    <string name="describe_your_mood">Deskripsikan Mood Mu</string>
+    <string name="save_entry">Simpan Catatan</string>
 </resources>

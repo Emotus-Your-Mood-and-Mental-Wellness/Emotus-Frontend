@@ -1,16 +1,16 @@
 package academy.bangkit.emotusproject
 
+import academy.bangkit.emotusproject.databinding.ActivityMainBinding
+import android.os.Build
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import android.view.View
+import android.view.WindowInsetsController
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import academy.bangkit.emotusproject.databinding.ActivityMainBinding
-import android.os.Build
-import android.view.View
-import android.view.WindowInsetsController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,7 +41,10 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_monitoring, R.id.navigation_tips, R.id.navigation_settings
+                R.id.navigation_home,
+                R.id.navigation_monitoring,
+                R.id.navigation_tips,
+                R.id.navigation_settings
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -52,12 +55,15 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home -> {
                     navController.navigate(R.id.navigation_home)
                 }
+
                 R.id.navigation_monitoring -> {
                     navController.navigate(R.id.navigation_monitoring)
                 }
+
                 R.id.navigation_tips -> {
                     navController.navigate(R.id.navigation_tips)
                 }
+
                 R.id.navigation_settings -> {
                     navController.navigate(R.id.navigation_settings)
                 }

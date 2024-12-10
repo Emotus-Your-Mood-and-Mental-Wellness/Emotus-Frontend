@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="24dp"
+    android:paddingTop="16dp"
     android:layout_marginBottom="96dp"
     android:orientation="vertical"
     tools:context=".ui.tips.TipsFragment">
@@ -12,22 +12,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_bold"
-        android:text="Your Daily Tips"
+        android:text="Tips Harianmu"
         android:textAlignment="center"
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/satua"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/inter_semibold"
-        android:text="Take a Moment for Yourself"
+            android:text="Luangkan Waktu untuk Dirimu"
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/satu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
@@ -43,11 +43,11 @@
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/inter_semibold"
-        android:text="Kind Reminder"
+        android:text="Pengingat Kecil"
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/dua"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
@@ -63,11 +63,11 @@
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/inter_semibold"
-        android:text="Quick Activity"
+        android:text="Aktivitas Singkat"
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/tiga"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
@@ -83,11 +83,11 @@
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/inter_semibold"
-        android:text="Relaxation Exercise"
+            android:text="Latihan Relaksasi"
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/empat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
@@ -104,12 +104,14 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/inter_semibold"
         android:text="Mood Boost Suggestion"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:visibility="gone" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="4dp" />
+        android:layout_marginTop="4dp"
+        android:visibility="gone" />
 
 </LinearLayout>
