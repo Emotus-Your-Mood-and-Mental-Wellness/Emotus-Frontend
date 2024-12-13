@@ -7,4 +7,8 @@ Emotus – Mood Tracker & Emotional Well-being App is an innovative mobile appli
 
 ### Demo Link: [Video](https://youtube.com/shorts/6QWA_M0zoT8)
 
+### Download Link: [Emotus](https://drive.google.com/file/d/1uQjj5b7O_Ow07z2VOZvvhuDMMVbNEgPa/view?usp=sharing)
+
+### Download QR Code:
+<img src="https://github.com/user-attachments/assets/030f7a1c-6502-4eff-b76a-34fbe7da0b08" alt="Emotus" width="200">
 
