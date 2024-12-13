@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1089286517825",
+    "firebase_url": "https://emotus-project-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "emotus-project",
+    "storage_bucket": "emotus-project.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089286517825:android:88125c6aec73f6030e42c0",
+        "android_client_info": {
+          "package_name": "com.emotus.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089286517825-liv5l0ocn70s5mqv7jgor8lt8u4s1sbg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.emotus.app",
+            "certificate_hash": "59a74226a5bf8dae822afcf3c9c1df0f765317eb"
+          }
+        },
+        {
+          "client_id": "1089286517825-q8d4d5golrnnpia233pvb4vfstat4256.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCh42QnG1zmlfQBQaGFVjkBOy6Zrp-YuX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1089286517825-q8d4d5golrnnpia233pvb4vfstat4256.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingTop="16dp"
+    android:layout_height="wrap_content"
     android:layout_marginBottom="96dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingTop="16dp">
 
 
     <TextView
@@ -34,7 +34,6 @@
         android:layout_marginEnd="24dp"
         android:fontFamily="@font/inter_semibold"
         android:text="Profil"
-
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,21 +44,20 @@
         android:layout_width="175dp"
         android:layout_height="175dp"
         android:layout_marginTop="24dp"
-        android:src="@drawable/circle_png"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView35"
         tools:srcCompat="@tools:sample/avatars" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
+        android:id="@+id/emailLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-        android:hint="User ID"
+        android:hint="Alamat Email"
         app:boxBackgroundColor="#D6B7FD"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="10dp"
@@ -67,29 +65,29 @@
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
         app:boxStrokeWidth="0dp"
+        app:endIconDrawable="@drawable/edit_24px"
         app:endIconMode="custom"
         app:expandedHintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8">
+        app:layout_constraintTop_toBottomOf="@+id/nameLayout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/userid"
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:enabled="false"
             android:paddingVertical="15dp"
-            android:text="user1"
             android:textColor="@drawable/state" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout3"
+        android:id="@+id/nameLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:hint="Nama"
         app:boxBackgroundColor="#D6B7FD"
@@ -98,15 +96,15 @@
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
-        app:boxStrokeWidth="0dp"
 
+        app:boxStrokeWidth="0dp"
         app:endIconDrawable="@drawable/edit_24px"
-        app:endIconTint="#65558F"
         app:endIconMode="custom"
+        app:endIconTint="#65558F"
         app:expandedHintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/imageView8">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/name"
@@ -114,7 +112,6 @@
             android:layout_height="wrap_content"
             android:enabled="false"
             android:paddingVertical="15dp"
-            android:text="Sarah"
             android:textColor="@drawable/state" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -130,7 +127,7 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/nameLayout" />
 
     <TextView
         android:id="@+id/textView36"
@@ -175,9 +172,22 @@
         android:layout_height="30dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
+        android:background="@drawable/button_background"
         android:src="@drawable/edit_24px"
-        android:background="@drawable/rounded_background"
         app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        app:tint="#65558F" />
+
+    <ImageButton
+        android:visibility="gone"
+        android:id="@+id/delete"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/button_background"
+        android:src="@drawable/delete_24px"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
         app:layout_constraintTop_toTopOf="@+id/imageView8"
         app:tint="#65558F" />
 
@@ -192,7 +202,7 @@
         app:iconSize="26dp"
         app:iconTint="#65558F"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/emailLayout" />
 
     <TextView
         android:id="@+id/textView3"

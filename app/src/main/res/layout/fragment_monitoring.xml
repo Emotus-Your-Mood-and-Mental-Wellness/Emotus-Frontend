@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="16dp"
     android:layout_marginBottom="96dp"
-    tools:context=".ui.monitoring.MonitoringFragment">
+    android:paddingTop="16dp"
+    tools:context="com.emotus.app.ui.monitoring.MonitoringFragment">
 
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:id="@+id/toggleButton"
@@ -98,6 +98,15 @@
             android:id="@+id/chart"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/bchart"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </RelativeLayout>
@@ -155,10 +164,10 @@
             android:layout_alignTop="@id/happyProgressBar"
             android:layout_alignEnd="@id/happyProgressBar"
             android:layout_alignBottom="@id/happyProgressBar"
+            android:layout_marginEnd="8dp"
             android:fontFamily="@font/inter_medium"
             android:gravity="center"
             android:text="0%"
-            android:layout_marginEnd="8dp"
             android:textSize="16sp" />
     </RelativeLayout>
 
@@ -208,10 +217,10 @@
             android:id="@+id/loveProgressBarText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
             android:layout_alignTop="@id/loveProgressBar"
             android:layout_alignEnd="@id/loveProgressBar"
             android:layout_alignBottom="@id/loveProgressBar"
+            android:layout_marginEnd="8dp"
             android:fontFamily="@font/inter_medium"
             android:gravity="center"
             android:text="0%"
@@ -265,10 +274,10 @@
             android:id="@+id/fearProgressBarText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
             android:layout_alignTop="@id/fearProgressBar"
             android:layout_alignEnd="@id/fearProgressBar"
             android:layout_alignBottom="@id/fearProgressBar"
+            android:layout_marginEnd="8dp"
             android:fontFamily="@font/inter_medium"
             android:gravity="center"
             android:text="0%"
@@ -322,10 +331,10 @@
             android:id="@+id/sadnessProgressBarText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
             android:layout_alignTop="@id/sadnessProgressBar"
             android:layout_alignEnd="@id/sadnessProgressBar"
             android:layout_alignBottom="@id/sadnessProgressBar"
+            android:layout_marginEnd="8dp"
             android:fontFamily="@font/inter_medium"
             android:gravity="center"
             android:text="0%"
@@ -379,12 +388,12 @@
             android:id="@+id/angerProgressBarText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
             android:layout_alignTop="@id/angerProgressBar"
             android:layout_alignEnd="@id/angerProgressBar"
             android:layout_alignBottom="@id/angerProgressBar"
             android:layout_marginStart="1dp"
             android:layout_marginTop="0dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="0dp"
             android:fontFamily="@font/inter_medium"
             android:gravity="center"
@@ -441,10 +450,10 @@
             android:paddingBottom="4dp">
 
             <TextView
-                android:id="@+id/textView21"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="8dp"
+                android:id="@+id/moo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/inter_semibold"
                 android:text="Hari Ini Kamu Merasa"
@@ -605,17 +614,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recycle" />
-
     <Button
         android:id="@+id/infoButton"
         style="@style/CustomIconButton"
@@ -674,11 +672,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        app:icon="@drawable/info_24px"
-        app:iconSize="20dp"
         android:insetLeft="0dp"
         android:insetRight="0dp"
         android:padding="0dp"
+        app:icon="@drawable/info_24px"
+        app:iconSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/moodGraphSubtitle"
         app:layout_constraintStart_toEndOf="@+id/moodGraphSubtitle"
         app:layout_constraintTop_toTopOf="@+id/moodGraphSubtitle" />
